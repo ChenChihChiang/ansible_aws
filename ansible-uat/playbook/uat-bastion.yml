@@ -2,10 +2,15 @@
  - hosts: uat-bastion
    become: true
    tasks:
+  
+    - group:
+        name: backend
+        state: present
+
     - user:
         name: james
         shell: /bin/bash
-        groups: james,wheel
+        groups: backend,wheel
     
     - name: Copy hosts to client
       copy: src=../hosts dest=/etc/hosts
