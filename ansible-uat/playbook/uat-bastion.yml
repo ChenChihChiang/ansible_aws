@@ -1,0 +1,25 @@
+---
+ - hosts: uat-bastion
+   become: true
+   tasks:
+    - user:
+      name: james
+      shell: /bin/bash
+      groups: james,wheel
+    
+    - name: Copy hosts to client
+      copy: src=../hosts dest=/etc/hosts
+            owner=root group=root mode=0644
+
+    - name: Copy selinux file to client
+      copy: src=../uat-reverse-proxy/src/config dest=/etc/selinux/config
+            owner=root group=root mode=0644
+    
+    - name: disable selinux
+      command: /sbin/setenforce 0
+      when: ansible_selinux.status != 'disabled'
+
+    - name: install epel-release
+      yum:
+        name: epel-release 
+        state: present

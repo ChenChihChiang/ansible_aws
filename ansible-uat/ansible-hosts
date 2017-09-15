@@ -1,3 +1,6 @@
+[uat-bastion-group]
+uat-bastion ansible_ssh_host=uat-bastion
+
 [uat-reverse-proxy-group]
 uat-proxy ansible_ssh_host=uat-reverse-proxy
 
