@@ -1,10 +1,10 @@
 ---
- - hosts: dev-services
+ - hosts: uat-services
    become: true
    tasks:
 
     - name: Copy hosts file to client
-      copy: src=/etc/hosts dest=/etc/hosts
+      copy: src=hosts dest=/etc/hosts
             owner=root group=root mode=0644
 
     - name: Copy selinux file to client
@@ -51,7 +51,7 @@
     - name: make sure docker is running
       service: name=docker state=started
 
-    - name: disable selinux
+    - name: pull nginx image
       command: /usr/bin/docker pull nginx
  
    handlers:     

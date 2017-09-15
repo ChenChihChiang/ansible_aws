@@ -1,5 +1,5 @@
 ---
- - hosts: dev-database
+ - hosts: uat-database
    become: true
    tasks:
 

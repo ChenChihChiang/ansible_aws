@@ -1,9 +1,6 @@
-[dev-reverse-proxy-group]
-dev-proxy ansible_ssh_host=dev-reverse-proxy
-
-[dev-services-group]
-dev-services ansible_ssh_host=dev-services
-
-[dev-database-group]
-dev-database ansible_ssh_host=dev-database
-
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+10.1.0.10   dev-bastion
+10.1.1.10   dev-reverse-proxy
+10.1.100.10 dev-services
+10.1.101.10 dev-database

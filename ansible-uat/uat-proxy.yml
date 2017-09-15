@@ -1,9 +1,9 @@
 ---
- - hosts: dev-proxy 
+ - hosts: uat-proxy 
    become: true
    tasks:
     - name: Copy selinux file to client
-      copy: src=dev-reverse-proxy/src/config dest=/etc/selinux/config
+      copy: src=uat-reverse-proxy/src/config dest=/etc/selinux/config
             owner=root group=root mode=0644
     
     - name: disable selinux
@@ -27,7 +27,7 @@
 
 
     - name: Copy nginx config file to client
-      copy: src=dev-reverse-proxy/src/nginx.conf dest=/etc/nginx/nginx.conf
+      copy: src=uat-reverse-proxy/src/nginx.conf dest=/etc/nginx/nginx.conf
             owner=root group=root mode=0644
       notify: restart nginx
  
@@ -35,7 +35,7 @@
       service: name=nginx state=started
 
     - name: Copy squid config file to client
-      copy: src=dev-reverse-proxy/src/squid.conf dest=/etc/squid/squid.conf
+      copy: src=uat-reverse-proxy/src/squid.conf dest=/etc/squid/squid.conf
             owner=root group=root mode=0644
       notify: restart squid
  
