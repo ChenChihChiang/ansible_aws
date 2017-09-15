@@ -1,3 +1,6 @@
+[dev-bastion-group]
+dev-bastion ansible_ssh_host=dev-bastion
+
 [dev-reverse-proxy-group]
 dev-proxy ansible_ssh_host=dev-reverse-proxy
 
