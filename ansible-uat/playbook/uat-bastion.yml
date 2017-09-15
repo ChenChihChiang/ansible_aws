@@ -3,9 +3,9 @@
    become: true
    tasks:
     - user:
-      name: james
-      shell: /bin/bash
-      groups: james,wheel
+        name: james
+        shell: /bin/bash
+        groups: james,wheel
     
     - name: Copy hosts to client
       copy: src=../hosts dest=/etc/hosts
