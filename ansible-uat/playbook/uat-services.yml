@@ -4,23 +4,23 @@
    tasks:
 
     - name: Copy hosts file to client
-      copy: src=hosts dest=/etc/hosts
+      copy: src=../hosts dest=/etc/hosts
             owner=root group=root mode=0644
 
     - name: Copy selinux file to client
-      copy: src=dev-database/src/config dest=/etc/selinux/config
+      copy: src=../uat-database/src/config dest=/etc/selinux/config
             owner=root group=root mode=0644
 
     - name: Copy wgetrc file to client
-      copy: src=dev-database/src/wgetrc dest=/etc/wgetrc
+      copy: src=../uat-database/src/wgetrc dest=/etc/wgetrc
             owner=root group=root mode=0644
 
     - name: Copy profile file to client
-      copy: src=dev-database/src/profile dest=/etc/profile
+      copy: src=../uat-database/src/profile dest=/etc/profile
             owner=root group=root mode=0644
 
     - name: Copy yum config file to client
-      copy: src=dev-database/src/yum.conf dest=/etc/yum.conf
+      copy: src=../uat-database/src/yum.conf dest=/etc/yum.conf
             owner=root group=root mode=0644
     
     - name: disable selinux
@@ -44,7 +44,7 @@
         mode: 755
 
     - name: Copy docker config file to client
-      copy: src=dev-database/src/http-proxy.conf dest=/etc/systemd/system/docker.service.d/http-proxy.conf
+      copy: src=../uat-database/src/http-proxy.conf dest=/etc/systemd/system/docker.service.d/http-proxy.conf
             owner=root group=root mode=0644
       notify: restart docker
  

@@ -3,7 +3,7 @@
    become: true
    tasks:
     - name: Copy hosts file to client
-      copy: src=hosts dest=/etc/hosts
+      copy: src=../hosts dest=/etc/hosts
             owner=root group=root mode=0644
 
     - name: Copy selinux file to client
