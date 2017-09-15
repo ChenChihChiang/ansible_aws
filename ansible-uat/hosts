@@ -1,0 +1,9 @@
+[uat-reverse-proxy-group]
+uat-proxy ansible_ssh_host=uat-reverse-proxy
+
+[uat-services-group]
+uat-services ansible_ssh_host=uat-services
+
+[uat-database-group]
+uat-database ansible_ssh_host=uat-database
+
