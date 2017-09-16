@@ -36,7 +36,7 @@
       notify: restart nginx
  
     - name: make sure nginx is running
-      service: name=nginx state=started
+      service: name=nginx state=started enabled=yes
 
     - name: Copy squid config file to client
       copy: src=dev-reverse-proxy/src/squid.conf dest=/etc/squid/squid.conf
@@ -44,11 +44,11 @@
       notify: restart squid
  
     - name: make sure squid is running
-      service: name=squid state=started
+      service: name=squid state=started enabled=yes
  
    handlers:     
     - name: restart nginx
-      service: name=nginx state=restarted
+      service: name=nginx state=restarted enabled=yes
    
     - name: restart squid
-      service: name=squid state=restarted
+      service: name=squid state=restarted enabled=yes

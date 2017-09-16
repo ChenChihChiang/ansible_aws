@@ -49,7 +49,7 @@
       notify: restart docker
  
     - name: make sure docker is running
-      service: name=docker state=started
+      service: name=docker state=started enabled=yes
 
     - name: pull nginx image
       command: /usr/bin/docker pull nginx
@@ -57,4 +57,4 @@
    handlers:     
 
     - name: restart docker
-      service: name=docker state=restarted 
+      service: name=docker state=restarted enabled=yes
