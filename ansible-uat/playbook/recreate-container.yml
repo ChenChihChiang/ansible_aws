@@ -1,0 +1,14 @@
+---
+ - hosts: uat-services
+   become: true
+   tasks:
+
+    - name: Re-create a flask container
+      docker_container:
+        name: flash
+        image: chihchinag/flask:latest
+        command: python3 /root/app.py
+        state: started
+        recreate: yes
+        ports:
+         - "80:80"
