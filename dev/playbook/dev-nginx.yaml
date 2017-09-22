@@ -3,13 +3,13 @@
    become: true
    tasks:
 
-    - include: dev-selinux.yaml
+    - include: ./common/dev-selinux.yaml
 
-    - include: dev-epel.yaml
+    - include: ./common/dev-epel.yaml
 
-    - include: dev-hosts.yaml
+    - include: ./common/dev-hosts.yaml
 
-    - include: dev-ntp.yaml
+    - include: ./common/dev-ntp.yaml
 
     - name: install nginx
       yum:
