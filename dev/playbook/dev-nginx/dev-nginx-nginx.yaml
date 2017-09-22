@@ -9,6 +9,6 @@
       service: name=nginx state=started enabled=yes
 
 
-   handlers:     
+  handlers:     
     - name: restart nginx
       service: name=nginx state=restarted enabled=yes
