@@ -19,7 +19,7 @@
         - { name: 'jason',  groups: 'backend,wheel' }
         - { name: 'eric',   groups: 'backend,wheel' }
 
-    - include: ./uat-bastion/uat-bastion-nat.yaml
+    - include: ./dev-bastion/dev-bastion-nat.yaml
 
     - include: ../common/dev-ntp.yaml
 
