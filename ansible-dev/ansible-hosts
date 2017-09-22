@@ -1,5 +1,5 @@
 [dev-bastion-group]
-dev-bastion ansible_ssh_host=dev-bastion
+dev-bastion ansible_ssh_host=dev-bastion ansible_ssh_port=10001
 
 [dev-reverse-proxy-group]
 dev-proxy ansible_ssh_host=dev-reverse-proxy
