@@ -12,6 +12,4 @@
     - name: make sure squid is running
       service: name=squid state=started enabled=yes
  
-  -handlers:     
-    - name: restart squid
-      service: name=squid state=restarted enabled=yes
+

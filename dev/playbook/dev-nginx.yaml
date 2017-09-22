@@ -14,3 +14,10 @@
     - include: ./dev-nginx/dev-nginx-nginx.yaml
 
     - include: ./dev-nginx/dev-nginx-squid.yaml
+
+   handlers:     
+    - name: restart nginx
+      service: name=nginx state=restarted enabled=yes
+
+    - name: restart squid
+      service: name=squid state=restarted enabled=yes
