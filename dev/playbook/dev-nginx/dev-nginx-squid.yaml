@@ -1,0 +1,17 @@
+
+    - name: install squid
+      yum:
+        name: squid
+        state: present
+
+    - name: Copy squid config file to client
+      copy: src=../dev-nginx/src/squid.conf dest=/etc/squid/squid.conf
+            owner=root group=root mode=0644
+      notify: restart squid
+ 
+    - name: make sure squid is running
+      service: name=squid state=started enabled=yes
+ 
+   handlers:     
+    - name: restart squid
+      service: name=squid state=restarted enabled=yes

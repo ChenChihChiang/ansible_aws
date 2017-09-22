@@ -77,3 +77,5 @@ unset -f pathmunge
 
 http_proxy=http://dev-nginx:3128
 export http_proxy
+
+alias ap='ansible-playbook'
