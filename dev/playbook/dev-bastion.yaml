@@ -21,10 +21,10 @@
 
     - include: ./dev-bastion/dev-bastion-nat.yaml
 
-    - include: ../common/dev-ntp.yaml
+    - include: ../common/src/dev-ntp.yaml
 
-    - include: ../common/dev-selinux.yaml
+    - include: ../common/src/dev-selinux.yaml
 
-    - include: ../common/dev-epel.yaml
+    - include: ../common/src/dev-epel.yaml
 
-    - include: ../common/dev-hosts.yaml
+    - include: ../common/src/dev-hosts.yaml
