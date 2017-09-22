@@ -1,0 +1,12 @@
+---
+ - hosts: dev-*
+   become: true
+   tasks:
+
+    - name: install ntp
+      yum:
+        name: ntp
+        state: present
+  
+    - name: ntptime
+      command: /sbin/ntpdate time.stdtime.gov.tw
