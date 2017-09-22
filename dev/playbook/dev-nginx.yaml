@@ -11,30 +11,6 @@
 
     - include: ./common/dev-ntp.yaml
 
-    - name: install nginx
-      yum:
-        name: nginx 
-        state: present
+    - include: ./dev-nginx/dev-nginx-nginx.yaml
 
-    - name: install squid
-      yum:
-        name: squid
-        state: present
-
-    - name: make sure nginx is running
-      service: name=nginx state=started enabled=yes
-
-    - name: Copy squid config file to client
-      copy: src=../dev-nginx/src/squid.conf dest=/etc/squid/squid.conf
-            owner=root group=root mode=0644
-      notify: restart squid
- 
-    - name: make sure squid is running
-      service: name=squid state=started enabled=yes
- 
-   handlers:     
-    - name: restart nginx
-      service: name=nginx state=restarted enabled=yes
-   
-    - name: restart squid
-      service: name=squid state=restarted enabled=yes
+    - include: ./dev-nginx/dev-nginx-squid.yaml
