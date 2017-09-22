@@ -34,7 +34,7 @@
         - { name: 'yum-config-manager --enable docker-ce-edge' }
         - { name: 'yum-config-manager --enable docker-ce-test' }
 
-    - name: install docker
+    - name: install package
       yum:
         name: "{{ item.name }}"
         state: present

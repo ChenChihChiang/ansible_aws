@@ -53,6 +53,8 @@
 
     - name: pull nginx image
       command: /usr/bin/docker pull nginx
+
+    - include: dev-git-proxy.yml
  
    handlers:     
 
