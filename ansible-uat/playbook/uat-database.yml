@@ -27,15 +27,22 @@
       command: /sbin/setenforce 0
       when: ansible_selinux.status != 'disabled' 
 
-    - name: install epel-release
-      yum:
-        name: epel-release 
-        state: present
+    - name: download docker repo
+      command: "{{ item.name }}"
+      with_items:
+        - { name: 'yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo' }
+        - { name: 'yum-config-manager --enable docker-ce-edge' }
+        - { name: 'yum-config-manager --enable docker-ce-test' }
 
     - name: install docker
       yum:
-        name: docker-io
+        name: "{{ item.name }}"
         state: present
+      with_items:
+        - { name: 'yum-utils' }
+        - { name: 'device-mapper-persistent-data' }
+        - { name: 'lvm2' }
+        - { name: 'epel-release' }
 
     - name: mkdir docker config directory
       file: 
@@ -51,8 +58,8 @@
     - name: make sure docker is running
       service: name=docker state=started enabled=yes
 
-    - name: pull nginx image
-      command: /usr/bin/docker pull nginx
+    #- name: pull nginx image
+    #  command: /usr/bin/docker pull nginx
  
    handlers:     
 
