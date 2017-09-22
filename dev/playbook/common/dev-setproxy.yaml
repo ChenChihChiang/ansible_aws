@@ -1,0 +1,12 @@
+
+    - name: Copy wgetrc file to client
+      copy: src=../common/src/wgetrc dest=/etc/wgetrc
+            owner=root group=root mode=0644
+
+    - name: Copy profile file to client
+      copy: src=../common/src/profile dest=/etc/profile
+            owner=root group=root mode=0644
+
+    - name: Copy yum config file to client
+      copy: src=../common/src/yum.conf dest=/etc/yum.conf
+            owner=root group=root mode=0644

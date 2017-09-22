@@ -1,0 +1,30 @@
+---
+ - hosts: dev-bastion
+   become: true
+   tasks:
+  
+    - group:
+        name: backend
+        state: present
+
+    - name: add several users
+      user:
+        name: "{{ item.name }}"
+        shell: /bin/bash
+        state: present
+        groups: "{{ item.groups }}"
+      with_items:
+        - { name: 'john',   groups: 'backend,wheel' }
+        - { name: 'daniel', groups: 'backend,wheel' }
+        - { name: 'jason',  groups: 'backend,wheel' }
+        - { name: 'eric',   groups: 'backend,wheel' }
+
+    - include: ./uat-bastion/uat-bastion-nat.yaml
+
+    - include: ../common/dev-ntp.yaml
+
+    - include: ../common/dev-selinux.yaml
+
+    - include: ../common/dev-epel.yaml
+
+    - include: ../common/dev-hosts.yaml

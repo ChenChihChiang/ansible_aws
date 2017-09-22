@@ -1,5 +1,5 @@
 ---
- - hosts: dev-bastion
+ - hosts: uat-bastion
    become: true
    tasks:
   
@@ -24,7 +24,7 @@
             owner=root group=root mode=0644
 
     - name: Copy selinux file to client
-      copy: src=../dev-bastion/src/config dest=/etc/selinux/config
+      copy: src=../uat-bastion/src/config dest=/etc/selinux/config
             owner=root group=root mode=0644
     
     - name: disable selinux
@@ -35,3 +35,5 @@
       yum:
         name: epel-release 
         state: present
+
+    - include: ./dev-bastion/dev-bastion-nat.yaml

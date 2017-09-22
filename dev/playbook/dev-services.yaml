@@ -1,0 +1,10 @@
+---
+ - hosts: dev-services
+   become: true
+   tasks:
+
+    - include: ../common/*.yaml
+
+    - name: make sure docker is running
+      service: name=docker state=started enabled=yes
+

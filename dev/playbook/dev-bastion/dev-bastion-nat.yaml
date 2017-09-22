@@ -1,10 +1,6 @@
----
- - hosts: dev-bastion
-   become: true
-   tasks:
   
     - name: modify ip forward configuration file
-      copy: src=../dev-bastion/50-default.conf dest=/usr/lib/sysctl.d/50-default.conf
+      copy: src=../dev-bastion/src/50-default.conf dest=/usr/lib/sysctl.d/50-default.conf
 
     - name: tune on ipv4 forward
       command: /sbin/sysctl -w net.ipv4.ip_forward=1

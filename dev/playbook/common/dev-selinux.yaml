@@ -1,0 +1,8 @@
+
+    - name: Copy selinux file to client
+      copy: src=../common/src/config dest=/etc/selinux/config
+            owner=root group=root mode=0644
+    
+    - name: disable selinux
+      command: /sbin/setenforce 0
+      when: ansible_selinux.status != 'disabled'

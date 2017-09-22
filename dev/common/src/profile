@@ -75,5 +75,5 @@ done
 unset i
 unset -f pathmunge
 
-http_proxy=http://dev-reverse-proxy:3128
+http_proxy=http://dev-nginx:3128
 export http_proxy

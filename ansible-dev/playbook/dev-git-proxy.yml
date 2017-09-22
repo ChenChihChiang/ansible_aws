@@ -1,3 +1,0 @@
-
-    - name: dev git proxy
-      command: git config --global http.proxy http://dev-reverse-proxy:3128
